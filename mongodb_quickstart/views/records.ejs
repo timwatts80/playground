@@ -1,0 +1,29 @@
+<!-- views/records.ejs -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Records</title>
+  </head>
+  <body>
+    <h1>Add record to database</h1>
+    <form method="post" action="/" autocomplete="off">
+        <label>Name</label>
+        <div><input name="name" required></div>
+        <label>Age</label>
+        <div><input name="age" required></div>
+        <label>Color</label>
+        <div><input name="color" required></div>
+        <button>ADD RECORD</button>
+    </form>
+    <ul>
+      <% records.forEach(function(record) { %>
+        <li>
+          <%= record.name %> - <%= record.age %> - <%= record.color %>
+          <form method="post" action="/<%= record._id %>?_method=DELETE">
+            <button type="submit">DELETE</button>
+          </form>
+        </li>
+      <% }); %>
+    </ul>
+  </body>
+</html>

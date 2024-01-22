@@ -1,0 +1,8 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: my-certificate-issuer
+  namespace: mongodb-atlas-system
+spec:
+  ca:
+    secretName: selfsigned-cert-tls
